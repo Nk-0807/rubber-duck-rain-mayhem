@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://b6iflwj6k6ovy"]
+
+[ext_resource type="Script" uid="uid://b8c6ik5jm3pkq" path="res://raindrop.gd" id="1_1gk10"]
+[ext_resource type="Texture2D" uid="uid://dev2d3ffgunmc" path="res://Tiny Swords (Free Pack)/Buildings/Rubber Duck.png" id="2_4mtx4"]
+
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_6xp6c"]
+friction = 0.3
+bounce = 0.5
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_pevhg"]
+radius = 27.89265
+
+[node name="Node2D" type="RigidBody2D" unique_id=1532065263]
+collision_layer = 2
+collision_mask = 2
+physics_material_override = SubResource("PhysicsMaterial_6xp6c")
+gravity_scale = 0.475
+contact_monitor = true
+max_contacts_reported = 1
+script = ExtResource("1_1gk10")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=677865571]
+position = Vector2(23, 21)
+scale = Vector2(3, 3.531)
+texture = ExtResource("2_4mtx4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=561955484]
+position = Vector2(16, 21)
+shape = SubResource("CircleShape2D_pevhg")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
